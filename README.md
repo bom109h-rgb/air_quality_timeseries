@@ -1,6 +1,6 @@
 # Dự đoán PM2.5 theo giờ tại Bắc Kinh: Regression vs ARIMA cho Cảnh báo Ngắn hạn
 
-![Beijing Air Quality](https://your-image-url-here.com/cover.jpg)
+
 
 ## Mục lục
 1. [Giới thiệu bài toán](#1-giới-thiệu-bài-toán)
@@ -36,22 +36,22 @@ Pipeline được thiết kế theo luồng chặt chẽ: `EDA` $\rightarrow$ `R
 ## 3. Trực quan hóa và diễn giải dữ liệu
 
 ### 3.1. Toàn cảnh biến động PM2.5
-![Hình 1: PM2.5 toàn giai đoạn 2013–2017](./images/anh1.png)
+![Hình 1: PM2.5 toàn giai đoạn 2013–2017](./Images/anh1.png)
 * Dữ liệu dao động mạnh với nhiều đỉnh cao bất thường (**spike**).
 * Dữ liệu có đuôi phải dài, không phân phối chuẩn. Các spike này là rủi ro sức khỏe cực lớn cần dự báo chính xác.
 
 ### 3.2. Chu kỳ và đặc điểm ngắn hạn
-![Hình 2: PM2.5 phóng to 1–2 tháng](./images/anh4.png)
+![Hình 2: PM2.5 phóng to 1–2 tháng](./Images/anh4.png)
 * PM2.5 có dao động theo ngày rõ rệt. Mức ô nhiễm thường cao hơn vào ban đêm và sáng sớm.
 * **Lag 24h** là đặc trưng sống còn để mô hình không bị lệch chu kỳ sinh hoạt đô thị.
 
 ### 3.3. Phân tích tự tương quan
-![Hình 3: ACF / PACF của PM2.5](./images/anh2.png)
+![Hình 3: ACF / PACF của PM2.5](./Images/anh2.png)
 * **ACF:** Tự tương quan mạnh ở lag 1, 2 và lặp lại quanh lag 24.
 * **PACF:** Giảm dần sau vài lag đầu, gợi ý giá trị $p$ nhỏ trong mô hình ARIMA.
 
 ### 3.4. Kết quả dự báo ARIMA
-![Hình 4: Forecast vs Actual (ARIMA)](./images/anh9.png)
+![Hình 4: Forecast vs Actual (ARIMA)](./Images/anh9.png)
 * ARIMA bám sát xu hướng nhưng có xu hướng "làm mượt" (smooth) các đỉnh. Điều này khiến sai số RMSE tăng cao tại các điểm spike.
 
 ---
